@@ -1,0 +1,20 @@
+<ion-view view-title="Switches">
+  <ion-content class="padding">
+    <div class="list card" ng-repeat="group in groups">
+      <div class="item item-divider">{{group.name}}</div>
+      <div class="item item-body">
+        <div>
+
+            <ion-toggle ng-repeat="device in group.devices"
+                      ng-model="device.isToggled"
+                      ng-checked="device.isToggled"
+                      ng-change="switch(group,device)">
+            {{ device.name }}
+          </ion-toggle>
+
+        </div>
+      </div>
+    </div>
+    <div class="padding" ng-hide="groups.length">No switches found. Check that the IP and port in your settings is correct.</div>
+  </ion-content>
+</ion-view>
